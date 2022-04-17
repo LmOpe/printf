@@ -14,6 +14,7 @@ This repository contains all the files necessary for this `_printf` function to 
 * `i`
 * `b`
 * `o`
+
 But does not yet handle `flag characters`, `field width`, `precision` and `length modifiers`. It does, however has some other unique conversion specifiers:
 * `r:` prints the reversed string
 * `R:` prints the encrypted string
