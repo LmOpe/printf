@@ -1,6 +1,6 @@
 # \_printf
 
-\_printf is mini_version of `printf` function that formats and prints data. This function prints arguments according to format.
+\_printf is a mini_version of `printf` function that formats and prints data. This function prints arguments according to format.
 
 ---
 
