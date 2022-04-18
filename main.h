@@ -15,13 +15,6 @@
 
 int _printf(const char *format, ...);
 
-char print_char(va_list *ap);
-char print_int(va_list *ap);
-char print_str(va_list *ap);
-char *rev_string(va_list *ap);
-char *rot13(va_list *ap);
-int _putchar(char c);
-
 /**
  * count_specifiers - function that counts and returns the numbers,
  of specifiers found.
