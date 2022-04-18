@@ -15,7 +15,7 @@
 
 int _printf(const char *format, ...);
 
-char print_cha(va_list *ap);
+char print_char(va_list *ap);
 char print_int(va_list *ap);
 char print_str(va_list *ap);
 char *rev_string(va_list *ap);
