@@ -1,0 +1,47 @@
+.TH _printf 3 "19 April 2022"
+.SH NAME
+_printf - Formats and prints data
+.SH SYNOPSIS
+.B _printf 
+.I FORMAT 
+.B [
+.I ARGUMENT
+.B ]...
+.SH DESCRIPTION
+.B _printf
+prints output according to FORMAT. It returns the number of characters printed(excluding the null byte used to end output to strings), it writes to stdout, the standard output stream.
+.SS Format
+The format string is a character string composed of zero or more directives, the characters are copied into the output stream. And conversion specifiers, which start with a % character, which indicate the location and method to translate each argument.
+.SS The conversion specifiers:
+A character that define the type of data to be printed to the standard output, it specifies which type of data the corresponding argument is to be interpeted as. The conversion specifiers and their meanings are:
+.IP \[bu] 2
+c: specifies a single-byte character
+.IP \[bu]
+s: specifies a single-byte or multi-byte character string. Characters are displayed upto the first null character.
+.IP \[bu]
+%: is used to indicate the type of an argument
+.IP \[bu]
+d, i: convert the argument to signed decimal integer
+.IP \[bu]
+b: converts the unsigned
+.I int
+argument to binary
+.IP \[bu]
+u, o, x: convert the argument to unsigned decimal, octal and hexadecimal integer  respectively
+.IP \[bu]
+X: converts the argyument to unsigned hexadecimal intege; uses "ABCDEF".
+.IP \[bu]
+p: displays the argument as an address in hexadecimal digits.
+.IP \[bu]
+r: prints the reversed string
+.IP \[bu]
+R: encrypts the argument by replacing each letter with the letter, thirteen places down the alphabet
+.SH NOTES
+This custom _printf function does not yet handle:
+.I flag characters, field width, precision
+and
+.I length modifiers.
+.SH SEE ALSO
+.I printf(3), write(2)
+.SH AUTHOR
+Muhammed Lawal and Felix Okolo
