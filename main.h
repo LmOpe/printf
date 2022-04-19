@@ -6,64 +6,48 @@
 #include <stdlib.h>
 #include <string.h>
 
-/**
- * _printf - function that prints output according to format
- * @format: string that determines the conversion,
- * specifiers.
- * Return: the number of characters printed
- */
+#define BUFF_SIZE (1024)
+#define VAL_SPEC ("csdif%")
+
+typedef struct 
+{
+	int count;
+	char * s;
+} spec_det;
+
 
 int _printf(const char *format, ...);
 
-/**
- * count_specifiers - function that counts and returns the numbers,
- of specifiers found.
- * @s: string to count specifiers
- * Return: the number of specifiers found
- */
+int count_specifiers(const char *s);
 
-int count_specifiers(char *s);
+int get_next_spec(const char *s);
 
-/**
- * get_specifiers - function that extract specifiers and return,
- the specifier types.
- * @s: string to extract specifiers
- * @n: number of specifiers
- */
+void get_specifiers(const char *s, int n, char *dst);
 
-char *get_specifiers(char *s, int n);
+int print_string(va_list *v);
 
-/**
- * get_string - function that gets string argument,
- and returns pointer to string argument
- * @v: va_list type to extract string argument
- * Return: pointer to string argument
- */
+int print_char(va_list *v);
 
-char *get_string(va_list *v);
+int print_double(va_list *v);
 
-/**
- * get_char - function that extracts and returns char argument
- * @v: va_list type to extract char argument
- * Return: extracted char argument
- */
+int print_dec(va_list *v);
 
-char get_char(va_list *v);
+int print_int(va_list *v);
 
-/**
- * get_double - function that extracts and returns double argument
- * @v: va_list type to extract double argument
- * Return: extracted double argument
- */
+int print_perct(va_list *v);
 
-double get_double(va_list *v);
+int _putchar(char);
 
-/**
- * get_int - function that extracts and returns int argument
- * @v: va_list type to extract int argument
- * Return: extracted int argument
- */
+int int_toa(char *dst, int i);
 
-int get_int(va_list *v);
+int float_toa(char *dst, double f, int precision);
+
+int _pow(int a, int n);
+
+int _strlen(const char *s);
+
+int valid_spec(char c);
+
+int print_to(const char *s, int start, int end);
 
 #endif
