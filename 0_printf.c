@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 		print_double, print_perct, print_bin};
 
 	va_start(vl, format);
+	if (format == NULL)
+	return (-1);
 
 	n = start = len = prev = 0;
 	while (n >= 0)
