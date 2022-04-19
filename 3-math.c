@@ -20,3 +20,34 @@ int _pow(int a, int n)
 	}
 	return (tmp);
 }
+
+/**
+ * _itob - calculates binary of a decimal
+ * @dest: pointer to converted string
+ * @a: number to convert to binary
+ * Return: lenght of converted string
+ */
+
+int _itob(char *dst, int a)
+{
+	int c, tmp, len;
+
+	tmp = a;
+	c = 0;
+	while (tmp > 0)
+	{
+		c++;
+		tmp /= 2;
+	}
+	len = c;
+	*(dst + c) = '\0';
+	c--;
+	tmp = a;
+	while (c >= 0)
+	{
+		*(dst + c) = (tmp % 2) + '0';
+		tmp /= 2;
+		c--;
+	}
+	return (len);
+}
