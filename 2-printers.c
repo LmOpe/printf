@@ -27,7 +27,7 @@ int print_string(va_list *v)
 
 int print_char(va_list *v)
 {
-	char s = va_arg(*v, int );
+	char s = va_arg(*v, int);
 
 	_putchar(s);
 
@@ -69,7 +69,6 @@ int print_dec(va_list *v)
 /**
  * print_double - function that extracts and returns double argument
  * @v: va_list type to extract double argument
- * @precision: precision of floating number
  * Return: lenght of printed string
  */
 
