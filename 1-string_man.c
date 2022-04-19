@@ -91,7 +91,7 @@ int int_toa(char *dst, int i)
 
 int float_toa(char *dst, double f, int precision)
 {
-	int tmp, c, len;
+	int tmp, len;
 
 	if (precision < 0)
 	precision = 4;
