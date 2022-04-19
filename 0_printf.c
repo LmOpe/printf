@@ -9,15 +9,14 @@
 int _printf(const char *format, ...)
 {
 	va_list vl;
-	int spec_count, c, n, start, end, len, pos, prev;
-	int (*funcs[6])(va_list *) =
-		{print_char, print_string, print_dec, print_int, print_double, print_perct};
+	int n, start, end, len, pos, prev;
+	
+	int (*funcs[6])(va_list *) = {
+		print_char, print_string, print_dec, print_int, print_double, print_perct};
 
 	va_start(vl, format);
 
-	spec_count = count_specifiers(format);
-
-	c = n = start = len = 0;
+	n = start = len = 0;
 	while (n >= 0)
 	{
 		n = search_spec(format, n);
@@ -90,7 +89,7 @@ void get_specifiers(const char *s, int n, char *dst)
  * Return: lenght of printed string
  */
 
-int print_perct(va_list *v)
+int print_perct(va_list __attribute__((__unused__)) *v)
 {
 	_putchar('%');
 

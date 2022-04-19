@@ -50,4 +50,6 @@ int valid_spec(char c);
 
 int print_to(const char *s, int start, int end);
 
+int search_spec(const char *s, int n);
+
 #endif
