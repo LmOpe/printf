@@ -57,23 +57,33 @@ int search_spec(const char *s, int n)
 
 int int_toa(char *dst, int i)
 {
-	int tmp = i, c, len;
+	int tmp = i, tmp2, c, len, sen;
 
-	c = 0;
-	while (tmp != 0)
+	c = sen = 0;
+	if (tmp < 0)
+	{
+		*(dst + c) = '-';
+		tmp = tmp * -1;
+		c++;
+		sen = 1;
+	}
+	tmp2 = tmp;
+
+	while (tmp2 != 0)
 	{
 		c++;
-		tmp /= 10;
+		tmp2 /= 10;
 	}
 	len = c;
-	tmp = i;
+	tmp2 = tmp;
+
 	*(dst + c) = '\0';
 	c--;
 
-	while (c >= 0)
+	while (c >= sen)
 	{
-		*(dst + c) = '0' + tmp % 10;
-		tmp /= 10;
+		*(dst + c) = '0' + tmp2 % 10;
+		tmp2 /= 10;
 		c--;
 	}
 
@@ -94,12 +104,17 @@ int float_toa(char *dst, double f, int precision)
 	int tmp, len;
 
 	if (precision < 0)
-	precision = 4;
+	precision = 1;
 	tmp = (int) f;
 	len = int_toa(dst, tmp);
 	tmp = (int) ((f - (double) tmp) * _pow(10, precision));
+	if (tmp < 0)
+	{
+		tmp *= -1;
+	}
 	*(dst + len) = '.';
-	len += int_toa((dst + len + 1), tmp);
+	len++;
+	len += int_toa((dst + len), tmp);
 	return (len);
 
 }

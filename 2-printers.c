@@ -14,7 +14,6 @@ int print_string(va_list *v)
 
 	len = _strlen(s);
 	print_to(s, 0, len);
-	free(s);
 
 	return (len);
 }
@@ -78,7 +77,7 @@ int print_double(va_list *v)
 	int len;
 	char *s = malloc(BUFF_SIZE);
 
-	len = float_toa(s, d, 4);
+	len = float_toa(s, d, -1);
 	print_to(s, 0, len);
 	free(s);
 
