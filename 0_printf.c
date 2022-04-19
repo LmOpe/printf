@@ -85,28 +85,6 @@ void get_specifiers(const char *s, int n, char *dst)
 }
 
 /**
- * _pow - calculates a raised to power of n
- * @a: number to raise to power of n
- * @n: power
- * Return: a raised to power n
- */
-
-int _pow(int a, int n)
-{
-	int c, tmp;
-
-	tmp = a;
-	if (n == 0)
-	return 1;
-	for (c = 0; c < n - 1; c++)
-	{
-		tmp *= a;
-	}
-	
-	return (tmp);
-}
-
-/**
  * print_perct - function that extracts and returns char argument
  * @v: va_list type to extract char argument
  * Return: lenght of printed string
