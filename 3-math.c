@@ -30,23 +30,31 @@ int _pow(int a, int n)
 
 int _itob(char *dest, int a)
 {
-	int c, tmp, len;
+	int c, tmp, tmp2, len, sen;
 
 	tmp = a;
-	c = 0;
-	while (tmp > 0)
+	c = sen = 0;
+	if (tmp < 0)
+	{
+		*(dest + c) = '-';
+		tmp = tmp * -1;
+		c++;
+		sen = 1;
+	}
+	tmp2 = tmp;
+	while (tmp2 > 0)
 	{
 		c++;
-		tmp /= 2;
+		tmp2 /= 2;
 	}
 	len = c;
 	*(dest + c) = '\0';
 	c--;
-	tmp = a;
-	while (c >= 0)
+	tmp2 = tmp;
+	while (c >= sen)
 	{
-		*(dest + c) = (tmp % 2) + '0';
-		tmp /= 2;
+		*(dest + c) = (tmp2 % 2) + '0';
+		tmp2 /= 2;
 		c--;
 	}
 	return (len);
