@@ -45,3 +45,8 @@ String:[I am a string !]
 
 ## Project status
 ..in progress
+
+---
+
+## Authors
+Muhammed Lawal and Felix Okolo
