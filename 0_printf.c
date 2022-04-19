@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(vl, format);
 
-	n = start = len = 0;
+	n = start = len = prev = 0;
 	while (n >= 0)
 	{
 		n = search_spec(format, n);
@@ -24,20 +24,19 @@ int _printf(const char *format, ...)
 		if (n > 0)
 		{
 			if (prev > 0)
-			start = prev + 1;
+			start = prev;
 			end = n - 1;
 			len += print_to(format, start, end);
 			pos = valid_spec(*(format + n));
 			len += funcs[pos](&vl);
 		}
 		else
-		len += print_to(format, prev + 1, _strlen(format));
+		len += print_to(format, prev, _strlen(format));
 
-		prev = n;
+		prev = n + 1;
 
 	}
 	va_end(vl);
-	printf("total length is %d\n", len);
 	return (len);
 }
 
