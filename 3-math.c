@@ -28,7 +28,7 @@ int _pow(int a, int n)
  * Return: lenght of converted string
  */
 
-int _itob(char *dst, int a)
+int _itob(char *dest, int a)
 {
 	int c, tmp, len;
 
@@ -40,14 +40,15 @@ int _itob(char *dst, int a)
 		tmp /= 2;
 	}
 	len = c;
-	*(dst + c) = '\0';
+	*(dest + c) = '\0';
 	c--;
 	tmp = a;
 	while (c >= 0)
 	{
-		*(dst + c) = (tmp % 2) + '0';
+		*(dest + c) = (tmp % 2) + '0';
 		tmp /= 2;
 		c--;
 	}
 	return (len);
 }
+
