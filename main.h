@@ -7,7 +7,7 @@
 #include <string.h>
 
 #define BUFF_SIZE (1024)
-#define VAL_SPEC ("csdif%")
+#define VAL_SPEC ("csdif%b")
 
 typedef struct 
 {
@@ -51,5 +51,9 @@ int valid_spec(char c);
 int print_to(const char *s, int start, int end);
 
 int search_spec(const char *s, int n);
+
+int _itob(char *dst, int a);
+
+int print_bin(va_list *v);
 
 #endif
