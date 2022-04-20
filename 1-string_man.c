@@ -136,4 +136,3 @@ int _strlen(const char *s)
 	}
 	return (len);
 }
-

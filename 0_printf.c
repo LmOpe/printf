@@ -118,4 +118,3 @@ int valid_spec(char c)
 	}
 	return (-1);
 }
-
