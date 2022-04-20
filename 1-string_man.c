@@ -39,6 +39,7 @@ int search_spec(const char *s, int n)
 	{
 		if (*(s + c) == '%')
 		{
+			if (valid_spec(*(s + c + 1)) >= 0)
 			return (c + 1);
 		}
 		c++;
