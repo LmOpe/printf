@@ -23,7 +23,6 @@ int _printf(const char *format, ...)
 	while (n >= 0)
 	{
 		n = search_spec(format, n);
-
 		if (n > 0)
 		{
 			if (prev > 0)
@@ -32,15 +31,19 @@ int _printf(const char *format, ...)
 			len += print_to(format, start, end);
 			pos = valid_spec(*(format + n));
 			if (pos > 0)
-			len += funcs[pos](&vl);
+			{
+				len += funcs[pos](&vl);
+				prev = n + 1;
+				n++;
+			}
 			else
-			len += _putchar(*(format + n));
+			{
+				len += _putchar('%');
+				prev = n;
+			}
 		}
 		else
 		len += print_to(format, prev, _strlen(format));
-
-		prev = n + 1;
-
 	}
 	va_end(vl);
 	return (len);
