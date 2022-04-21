@@ -19,4 +19,3 @@ int print_bin(va_list *v)
 
 	return (len);
 }
-
