@@ -17,6 +17,11 @@ int print_string(va_list *v)
 		len = _strlen(s);
 		print_to(s, 0, len);
 	}
+	else
+	{
+		len = 6;
+		print_to("(null)", 0, len);
+	}
 
 	return (len);
 }
