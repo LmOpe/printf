@@ -10,16 +10,11 @@
 int print_string(va_list *v)
 {
 	char *s = va_arg(*v, char *);
-	int len;
+	int len = 0;
 
-	len = _strlen(s);
-	if (len == 0)
+	if (s != NULL)
 	{
-		len = 6;
-		print_to("(null)", 0, len);
-	}
-	else
-	{
+		len = _strlen(s);
 		print_to(s, 0, len);
 	}
 
