@@ -91,14 +91,14 @@ void get_specifiers(const char *s, int n, char *dst)
 /**
  * print_perct - function that extracts
  * and returns char argument
- * @v: va_list type to extract char argument
+ * @v1: va_list type to extract char argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
 int print_perct(
 	va_list __attribute__((__unused__)) *v1, 
-	va_list __attribute__((__unused__)) *v2
-	)
+	va_list __attribute__((__unused__)) *v2)
 {
 	_putchar('%');
 
