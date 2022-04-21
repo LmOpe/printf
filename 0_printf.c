@@ -97,7 +97,7 @@ void get_specifiers(const char *s, int n, char *dst)
  */
 
 int print_perct(
-	va_list __attribute__((__unused__)) *v1, 
+	va_list __attribute__((__unused__)) *v1,
 	va_list __attribute__((__unused__)) *v2)
 {
 	_putchar('%');
