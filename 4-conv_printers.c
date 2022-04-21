@@ -2,7 +2,8 @@
 
 /**
  * print_bin - function that converts and prints a dec as bin
- * @v: va_list type to extract char argument
+ * @v1: va_list type to extract char argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 

@@ -3,7 +3,8 @@
 /**
  * print_string - function that gets string argument,
  * and returns pointer to string argument
- * @v: va_list type to extract string argument
+ * @v1: va_list type to extract string argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
@@ -13,7 +14,6 @@ int print_string(va_list *v1, va_list *v2)
 	int len;
 
 	len = 0;
-	
 	if (s1 == NULL || s2 == NULL)
 	{
 		len = _strlen(s1);
@@ -25,7 +25,8 @@ int print_string(va_list *v1, va_list *v2)
 
 /**
  * print_char - function that extracts and returns char argument
- * @v: va_list type to extract char argument
+ * @v1: va_list type to extract char argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
@@ -43,7 +44,8 @@ int print_char(va_list *v1, va_list *v2)
 
 /**
  * print_int - function that extracts and returns char argument
- * @v: va_list type to extract char argument
+ * @v1: va_list type to extract char argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
@@ -71,18 +73,20 @@ int print_int(va_list *v1, va_list *v2)
 
 /**
  * print_dec - function that extracts and returns decimal argument
- * @v: va_list type to extract decimal argument
+ * @v1: va_list type to extract decimal argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
 int print_dec(va_list *v1, va_list *v2)
 {
-	return (print_int(v1,v2));
+	return (print_int(v1, v2));
 }
 
 /**
  * print_double - function that extracts and returns double argument
- * @v: va_list type to extract double argument
+ * @v1: va_list type to extract double argument
+ * @v2: copy of v1
  * Return: lenght of printed string
  */
 
