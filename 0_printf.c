@@ -31,7 +31,10 @@ int _printf(const char *format, ...)
 			end = n - 1;
 			len += print_to(format, start, end);
 			pos = valid_spec(*(format + n));
+			if (pos >= 0)
 			len += funcs[pos](&vl);
+			else
+			len += _putchar(*(format + n));
 		}
 		else
 		len += print_to(format, prev, _strlen(format));
