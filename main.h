@@ -24,17 +24,17 @@ int get_next_spec(const char *s);
 
 void get_specifiers(const char *s, int n, char *dst);
 
-int print_string(va_list *v);
+int print_string(va_list *v1, va_list *v2);
 
-int print_char(va_list *v);
+int print_char(va_list *v1, va_list *v2);
 
-int print_double(va_list *v);
+int print_double(va_list *v1, va_list *v2);
 
-int print_dec(va_list *v);
+int print_dec(va_list *v1, va_list *v2);
 
-int print_int(va_list *v);
+int print_int(va_list *v1, va_list *v2);
 
-int print_perct(va_list *v);
+int print_perct(va_list *v1, va_list *v2);
 
 int _putchar(char);
 
@@ -54,6 +54,6 @@ int search_spec(const char *s, int n);
 
 int _itob(char *dst, int a);
 
-int print_bin(va_list *v);
+int print_bin(va_list *v1, va_list *v2);
 
 #endif

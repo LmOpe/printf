@@ -7,20 +7,17 @@
  * Return: lenght of printed string
  */
 
-int print_string(va_list *v)
+int print_string(va_list *v1, va_list *v2)
 {
-	char *s = va_arg(*v, char *);
+	char *s1 = va_arg(*v1, char *), *s2 = va_arg(*v2, char *);
 	int len;
 
-	len = _strlen(s);
-	if (len == 0)
+	len = 0;
+	
+	if (s1 == NULL || s2 == NULL)
 	{
-		len = 6;
-		print_to("(null)", 0, len);
-	}
-	else
-	{
-		print_to(s, 0, len);
+		len = _strlen(s1);
+		print_to(s1, 0, len);
 	}
 
 	return (len);
@@ -32,13 +29,15 @@ int print_string(va_list *v)
  * Return: lenght of printed string
  */
 
-int print_char(va_list *v)
+int print_char(va_list *v1, va_list *v2)
 {
-	char s = va_arg(*v, int);
+	char s1 = va_arg(*v1, int), s2 = va_arg(*v2, int);
+	int len = 0;
 
-	_putchar(s);
+	if (s1 == s2)
+	len = _putchar(s1);
 
-	return (1);
+	return (len);
 }
 
 
@@ -48,15 +47,23 @@ int print_char(va_list *v)
  * Return: lenght of printed string
  */
 
-int print_int(va_list *v)
+int print_int(va_list *v1, va_list *v2)
 {
-	int i, len;
+	int i1, i2, len = 0;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, int);
+	i1 = va_arg(*v1, int);
+	i2 = va_arg(*v2, int);
 
-	len = int_toa(s, i);
-	print_to(s, 0, len);
+	if (i1 == i2)
+	{
+		len = int_toa(s, i1);
+		print_to(s, 0, len);
+	}
+	else
+	{
+		len = _putchar('0');
+	}
 	free(s);
 
 	return (len);
@@ -68,9 +75,9 @@ int print_int(va_list *v)
  * Return: lenght of printed string
  */
 
-int print_dec(va_list *v)
+int print_dec(va_list *v1, va_list *v2)
 {
-	return (print_int(v));
+	return (print_int(v1,v2));
 }
 
 /**
@@ -79,14 +86,21 @@ int print_dec(va_list *v)
  * Return: lenght of printed string
  */
 
-int print_double(va_list *v)
+int print_double(va_list *v1, va_list *v2)
 {
-	double d = va_arg(*v, double);
-	int len;
+	double d1 = va_arg(*v1, double), d2 = va_arg(*v2, double);
+	int len = 0;
 	char *s = malloc(BUFF_SIZE);
 
-	len = float_toa(s, d, -1);
-	print_to(s, 0, len);
+	if (d1 == d2)
+	{
+		len = float_toa(s, d1, -1);
+		print_to(s, 0, len);
+	}
+	else
+	{
+		len = _putchar('0');
+	}
 	free(s);
 
 	return (len);

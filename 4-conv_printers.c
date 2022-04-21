@@ -6,15 +6,19 @@
  * Return: lenght of printed string
  */
 
-int print_bin(va_list *v)
+int print_bin(va_list *v1, va_list *v2)
 {
-	int i, len;
+	int i1, i2, len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, int);
+	i1 = va_arg(*v1, int);
+	i2 = va_arg(*v2, int);
 
-	len = _itob(s, i);
-	print_to(s, 0, len);
+	if (i1 == i2)
+	{
+		len = _itob(s, i1);
+		print_to(s, 0, len);
+	}
 	free(s);
 
 	return (len);

@@ -8,14 +8,15 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list vl;
+	va_list vl1, vl2;
 	int n, start, end, len, pos, prev;
 
-	int (*funcs[7])(va_list *) = {
+	int (*funcs[7])(va_list *, va_list *) = {
 		print_char, print_string, print_dec, print_int,
 		print_double, print_perct, print_bin};
 
-	va_start(vl, format);
+	va_start(vl1, format);
+	va_copy(vl2, vl1);
 	if (format == NULL)
 	return (-1);
 
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 			end = n - 1;
 			len += print_to(format, start, end);
 			pos = valid_spec(*(format + n));
-			len += funcs[pos](&vl);
+			len += funcs[pos](&vl1, &vl2);
 		}
 		else
 		len += print_to(format, prev, _strlen(format));
@@ -39,7 +40,8 @@ int _printf(const char *format, ...)
 		prev = n + 1;
 
 	}
-	va_end(vl);
+	va_end(vl1);
+	va_end(vl1);
 	return (len);
 }
 
@@ -65,7 +67,8 @@ int count_specifiers(const char *s)
 }
 
 /**
- * get_specifiers - function that extract specifiers and return,
+ * get_specifiers - function that
+ * extract specifiers and return,
  * the specifier types.
  * @s: string to extract specifiers
  * @n: number of specifiers
@@ -86,12 +89,16 @@ void get_specifiers(const char *s, int n, char *dst)
 }
 
 /**
- * print_perct - function that extracts and returns char argument
+ * print_perct - function that extracts
+ * and returns char argument
  * @v: va_list type to extract char argument
  * Return: lenght of printed string
  */
 
-int print_perct(va_list __attribute__((__unused__)) *v)
+int print_perct(
+	va_list __attribute__((__unused__)) *v1, 
+	va_list __attribute__((__unused__)) *v2
+	)
 {
 	_putchar('%');
 
@@ -100,7 +107,8 @@ int print_perct(va_list __attribute__((__unused__)) *v)
 
 
 /**
- * valid_spec - function that checks if c is a valid specifier
+ * valid_spec - function that checks if c is
+ * a valid specifier
  * @c: character to search
  * Return: 1 or -1
  */
