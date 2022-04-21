@@ -15,11 +15,8 @@ int print_bin(va_list *v1, va_list *v2)
 	i1 = va_arg(*v1, int);
 	i2 = va_arg(*v2, int);
 
-	if (i1 == i2)
-	{
-		len = _itob(s, i1);
-		print_to(s, 0, len);
-	}
+	len = _itob(s, i1);
+	print_to(s, 0, len);
 	free(s);
 
 	return (len);

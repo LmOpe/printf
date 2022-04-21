@@ -35,7 +35,6 @@ int print_char(va_list *v1, va_list *v2)
 	char s1 = va_arg(*v1, int), s2 = va_arg(*v2, int);
 	int len = 0;
 
-	if (s1 == s2)
 	len = _putchar(s1);
 
 	return (len);
@@ -57,15 +56,8 @@ int print_int(va_list *v1, va_list *v2)
 	i1 = va_arg(*v1, int);
 	i2 = va_arg(*v2, int);
 
-	if (i1 == i2)
-	{
-		len = int_toa(s, i1);
-		print_to(s, 0, len);
-	}
-	else
-	{
-		len = _putchar('0');
-	}
+	len = int_toa(s, i1);
+	print_to(s, 0, len);
 	free(s);
 
 	return (len);
@@ -96,15 +88,8 @@ int print_double(va_list *v1, va_list *v2)
 	int len = 0;
 	char *s = malloc(BUFF_SIZE);
 
-	if (d1 == d2)
-	{
-		len = float_toa(s, d1, -1);
-		print_to(s, 0, len);
-	}
-	else
-	{
-		len = _putchar('0');
-	}
+	len = float_toa(s, d1, -1);
+	print_to(s, 0, len);
 	free(s);
 
 	return (len);
