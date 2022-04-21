@@ -7,13 +7,12 @@
  * Return: lenght of printed string
  */
 
-int print_bin(va_list *v1, va_list *v2)
+int print_bin(va_list *v1, va_list __attribute__((__unused__)) *v2)
 {
-	int i1, i2, len;
+	int i1, len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
 	i1 = va_arg(*v1, int);
-	i2 = va_arg(*v2, int);
 
 	len = _itob(s, i1);
 	print_to(s, 0, len);
