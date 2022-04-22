@@ -11,9 +11,10 @@ int _printf(const char *format, ...)
 	va_list vl;
 	int n, start, end, len, pos, prev;
 
-	int (*funcs[7])(va_list *) = {
+	int (*funcs[11])(va_list *) = {
 		print_char, print_string, print_dec, print_int,
-		print_double, print_perct, print_bin};
+		print_double, print_perct, print_bin, print_hex,
+		print_Hex, print_uint, print_oct};
 
 	va_start(vl, format);
 	if (format == NULL)

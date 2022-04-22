@@ -27,6 +27,10 @@ It does, however has some other unique conversion specifiers:
 
 Here is a sample main program:
 ```c
+/**
+ * main - Entry point
+ * Return: Always 0
+ */
 
 int main(void)
 {

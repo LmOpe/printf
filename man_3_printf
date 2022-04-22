@@ -2,8 +2,8 @@
 .SH NAME
 _printf - Formats and prints data
 .SH SYNOPSIS
-.B _printf 
-.I FORMAT 
+.B _printf
+.I FORMAT
 .B [
 .I ARGUMENT
 .B ]...
