@@ -8,10 +8,11 @@
 
 int print_bin(va_list *v)
 {
-	int i, len;
+	unsigned int i;
+	int len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, int);
+	i = va_arg(*v, unsigned int);
 
 	len = _itob(s, i);
 	print_to(s, 0, len);

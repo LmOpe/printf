@@ -28,33 +28,27 @@ int _pow(int a, int n)
  * Return: lenght of converted string
  */
 
-int _itob(char *dest, int a)
+int _itob(char *dest, unsigned int a)
 {
-	int c, tmp, tmp2, len, sen;
+	unsigned int tmp, len;
+	int c;
 
 	tmp = a;
-	c = sen = 0;
-	if (tmp < 0)
-	{
-		*(dest + c) = '-';
-		tmp = tmp * -1;
-		c++;
-		sen = 1;
-	}
-	tmp2 = tmp;
-	while (tmp2 > 0)
+	c = 0;
+
+	while (tmp > 0)
 	{
 		c++;
-		tmp2 /= 2;
+		tmp /= 2;
 	}
 	len = c;
 	*(dest + c) = '\0';
 	c--;
-	tmp2 = tmp;
-	while (c >= sen)
+	tmp = a;
+	while (c >= 0)
 	{
-		*(dest + c) = (tmp2 % 2) + '0';
-		tmp2 /= 2;
+		*(dest + c) = (tmp % 2) + '0';
+		tmp /= 2;
 		c--;
 	}
 	return (len);

@@ -2,4 +2,6 @@
 *.o
 .*
 !.gitignore
-*.out
+*.exe
+*.layout
+*win
