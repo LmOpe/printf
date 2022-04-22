@@ -22,41 +22,107 @@ int _pow(int a, int n)
 }
 
 /**
- * _itob - calculates binary of a decimal
+ * _itob - calculates specified base of a decimal
  * @dest: pointer to converted string
- * @a: number to convert to binary
+ * @a: number to convert to specified base
+ * @base: base to be converted
  * Return: lenght of converted string
  */
 
-int _itob(char *dest, int a)
+int _itob(char *dest, unsigned long int a, unsigned int base)
 {
-	int c, tmp, tmp2, len, sen;
+	unsigned int tmp, len;
+	int c;
 
 	tmp = a;
-	c = sen = 0;
-	if (tmp < 0)
-	{
-		*(dest + c) = '-';
-		tmp = tmp * -1;
-		c++;
-		sen = 1;
-	}
-	tmp2 = tmp;
-	while (tmp2 > 0)
+	c = 0;
+
+	while (tmp > 0)
 	{
 		c++;
-		tmp2 /= 2;
+		tmp /= base;
 	}
 	len = c;
 	*(dest + c) = '\0';
 	c--;
-	tmp2 = tmp;
-	while (c >= sen)
+	tmp = a;
+	while (c >= 0)
 	{
-		*(dest + c) = (tmp2 % 2) + '0';
-		tmp2 /= 2;
+		*(dest + c) = (tmp % base) + '0';
+		tmp /= base;
 		c--;
 	}
 	return (len);
 }
 
+/**
+ * _itoh - calculates hexadecimal of a decimal
+ * @dest: pointer to converted string
+ * @a: number to convert to hexadecimal
+ * Return: length of converted string
+ */
+
+int _itoh(char *dest, unsigned long int a)
+{
+	char *s = malloc(sizeof(char) * BUFF_SIZE);
+	int c = 0, len = 0, i = 0, b = 0, d = 0;
+
+	len = _itob(s, a, 2);
+	c = len;
+	while (c > 0)
+	{
+		i = b = 0;
+		while (i < 4 && c > 0)
+		{
+			if (*(s + c - 1) == '1')
+			b += _pow(2, i);
+			i++;
+			c--;
+		}
+		if (b < 9)
+		*(dest + d) = '0' + b;
+		else
+		*(dest + d) = 'a' + b - 10;
+		d++;
+	}
+	*(dest + d) = '\0';
+	rev_str(dest, d);
+	free(s);
+	return (d);
+}
+
+/**
+ * _itoH - calculates hexadecimal of a decimal
+ * @dest: pointer to converted string
+ * @a: number to convert to hexadecimal
+ * Return: length of converted string
+ */
+
+int _itoH(char *dest, unsigned long int a)
+{
+	char *s = malloc(sizeof(char) * BUFF_SIZE);
+	int c = 0, len = 0, i = 0, b = 0, d = 0;
+
+	len = _itob(s, a, 2);
+	c = len;
+	while (c > 0)
+	{
+		i = b = 0;
+		while (i < 4 && c > 0)
+		{
+			if (*(s + c - 1) == '1')
+			b += _pow(2, i);
+			i++;
+			c--;
+		}
+		if (b < 9)
+		*(dest + d) = '0' + b;
+		else
+		*(dest + d) = 'A' + b - 10;
+		d++;
+	}
+	*(dest + d) = '\0';
+	rev_str(dest, d);
+	free(s);
+	return (d);
+}
