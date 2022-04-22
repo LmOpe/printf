@@ -8,11 +8,11 @@
 
 int print_bin(va_list *v)
 {
-	unsigned int i;
+	unsigned long int i;
 	int len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, unsigned int);
+	i = va_arg(*v, unsigned long int);
 
 	len = _itob(s, i, 2);
 	print_to(s, 0, len);
@@ -30,11 +30,11 @@ int print_bin(va_list *v)
 
 int print_hex(va_list *v)
 {
-	unsigned int i;
+	unsigned long int i;
 	int len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, unsigned int);
+	i = va_arg(*v, unsigned long int);
 
 	len = _itoh(s, i);
 	print_to(s, 0, len);
@@ -52,11 +52,11 @@ int print_hex(va_list *v)
 
 int print_Hex(va_list *v)
 {
-	unsigned int i;
+	unsigned long int i;
 	int len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, unsigned int);
+	i = va_arg(*v, unsigned long int);
 
 	len = _itoH(s, i);
 	print_to(s, 0, len);
@@ -74,11 +74,11 @@ int print_Hex(va_list *v)
 
 int print_oct(va_list *v)
 {
-	unsigned int i;
+	unsigned long int i;
 	int len;
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 
-	i = va_arg(*v, unsigned int);
+	i = va_arg(*v, unsigned long int);
 
 	len = _itob(s, i, 8);
 	print_to(s, 0, len);

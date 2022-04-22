@@ -29,7 +29,7 @@ int _pow(int a, int n)
  * Return: lenght of converted string
  */
 
-int _itob(char *dest, unsigned int a, unsigned int base)
+int _itob(char *dest, unsigned long int a, unsigned int base)
 {
 	unsigned int tmp, len;
 	int c;
@@ -62,7 +62,7 @@ int _itob(char *dest, unsigned int a, unsigned int base)
  * Return: length of converted string
  */
 
-int _itoh(char *dest, unsigned int a)
+int _itoh(char *dest, unsigned long int a)
 {
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 	int c = 0, len = 0, i = 0, b = 0, d = 0;
@@ -98,7 +98,7 @@ int _itoh(char *dest, unsigned int a)
  * Return: length of converted string
  */
 
-int _itoH(char *dest, unsigned int a)
+int _itoH(char *dest, unsigned long int a)
 {
 	char *s = malloc(sizeof(char) * BUFF_SIZE);
 	int c = 0, len = 0, i = 0, b = 0, d = 0;

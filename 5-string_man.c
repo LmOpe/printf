@@ -29,7 +29,7 @@ void rev_str(char *s, int len)
  * Return: length of string
  */
 
-int uint_toa(char *dst, unsigned int i)
+int uint_toa(char *dst, unsigned long int i)
 {
 	unsigned int tmp = i;
 	int c, len;
