@@ -29,7 +29,7 @@ argument to binary
 .IP \[bu]
 u, o, x: convert the argument to unsigned decimal, octal and hexadecimal integer  respectively
 .IP \[bu]
-X: converts the argyument to unsigned hexadecimal intege; uses "ABCDEF".
+X: converts the argument to unsigned hexadecimal intege; uses "ABCDEF".
 .IP \[bu]
 p: displays the argument as an address in hexadecimal digits.
 .IP \[bu]
